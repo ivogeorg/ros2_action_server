@@ -86,7 +86,7 @@ private:
 
     // Check if goal is done
     if (rclcpp::ok()) {
-      result->status = "Finished action server. Robot moved during 5 seconds"; // TODO: hardoded value
+      result->status = "Finished action server. Robot moved during " + std::to_string(goal->secs) + " seconds";
       move.linear.x = 0.0;
       publisher_->publish(move);
       goal_handle->succeed(result);
